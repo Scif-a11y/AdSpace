@@ -1,0 +1,429 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AdSpace</title>
+        <style>
+            body {
+                background-color: black;
+                color: white;
+                font-family: geist mono, Arial;
+                overflow-x: hidden;
+                width: 100vw;
+                scroll-behavior: smooth;
+            }
+            html{
+                width: 100vw;
+            }
+            ::-webkit-scrollbar{
+                background-color: black;
+                width: 0.5rem;
+
+            }
+            ::-webkit-scrollbar-thumb{
+                background-color: white;
+            }
+            header {
+                display: flex;
+                height: 4.5rem;
+                align-items: center;
+                margin-top: 1.5rem;
+            }
+
+            header * {
+                align-content: center;
+                height: 100%;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+                color: rgba(70, 60, 209, 255);
+                width: 34%;
+                opacity: 0;
+                margin-left: 2rem;
+                animation: opacityControl 1s linear forwards;
+                transition: color 0.6s;
+            }
+
+            .logo span {
+                transition: color 0.6s;
+
+                color: orange;
+            }
+
+            .logo:hover {
+                color: orange;
+            }
+
+            .logo:hover span {
+                color: rgba(70, 60, 209, 255);
+            }
+
+            @keyframes opacityControl {
+            to {
+                opacity: 1;
+            }
+            }
+
+            nav {
+                padding-left: 2rem;
+                padding-right: 2rem;
+                align-items: center;
+                text-align: center;
+                border-radius: 10rem;
+                width: fit-content;
+                display: flex;
+                gap: 5rem;
+                background-color: rgba(70, 60, 209, 255);
+                transform: translateY(-6rem);
+                animation: topToBottom 0.5s linear 0.8s;
+                animation-fill-mode: forwards;
+            }
+
+            @keyframes topToBottom {
+            to {
+                transform: translateY(0rem);
+            }
+            }
+
+            nav a {
+                padding-left: 1rem;
+                padding-right: 1rem;
+                text-decoration: none;
+                color: white;
+                font-size: 1.2rem;
+                height: 3rem;
+                margin-top: 0.6rem;
+            }
+
+            nav a::after {
+                content: '';
+                height: 0.2rem;
+                background-color: orange;
+                display: block;
+                margin-top: 0.5rem;
+                opacity: 0;
+                transition: opacity 0.8s;
+            }
+
+            nav a:hover::after {
+                opacity: 1;
+            }
+
+            .hero {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                margin-top: 8rem;
+                height: 45vh;
+                opacity: 0;
+                animation: opacityControl 1s linear forwards;
+            }
+
+            .hero h1 {
+                font-size: 70px;
+                margin: 0;
+                transform: scale(5);
+                visibility: hidden;
+                animation: ScaleBtoS 0.7s linear forwards;
+                width: fit-content;
+
+            }
+
+            @keyframes ScaleBtoS {
+            to {
+                transform: scale(1.6);
+                visibility: visible;
+            }
+            }
+
+            .hero p {
+                font-size: 25px;
+                margin-bottom: 5rem;
+                font-weight: 900;
+            }
+
+            .hero a {
+                background-color: rgba(70, 60, 209, 255);
+                color: white;
+                width: fit-content;
+                padding: 20px;
+                text-decoration: none;
+                border-radius: 30px;
+                border: solid 4px transparent;
+                transition: background-color 0.5s, border-color 0.5s;
+                font-weight: 800;
+            }
+
+            .hero a:hover {
+                background-color: transparent;
+                border-color: orange;
+            }
+
+            .hero span {
+                color: rgba(70, 60, 209, 255);
+            }
+
+            .parentContainer {
+                display: flex;
+                gap: 7rem;
+                justify-content: center;
+            }
+
+            .card {
+                height: 15rem;
+                width: 25rem;
+                color: black;
+                background-color: white;
+                text-align: center;
+                border-radius: 1rem;
+                transition: all 0.2s linear;
+                animation: downToTop 1s linear forwards;
+                opacity: 0;
+                font-size: 25px;
+                border: 2px solid black;
+            }
+
+            .card:hover {
+                transform: translateY(-0.5rem);
+                cursor: pointer;
+                background-color: transparent;
+                color: white;
+                border-color: white
+            }
+
+            @keyframes downToTop {
+                to {
+                    opacity: 1;
+                }
+            }
+            .headerContainer{
+                font-size: 3.5rem;
+                text-align: center;
+                width: 100%;
+                margin-top: 4rem;
+                padding: 2rem;
+            }
+            .serviceContainer{
+                display: flex;
+                gap: 5rem;
+                margin-top: 5rem;
+                height: 45rem;
+            }
+            .serviceContainer h1,.serviceContainer p{
+                text-align: center;
+            }
+            .billboard{
+                text-align: center;
+                background-color: white;
+                background-repeat: no-repeat;
+                background-size: cover;
+                color: black;
+                bottom: -11.5rem;
+                font-size: larger;
+                height: 12rem;
+                overflow: hidden;
+                transition:all 1s, height 0.5s;
+                margin-left: 2rem;
+                padding: 1rem;
+                width: 40%;
+                border-radius: 2rem;
+            }
+            .billboard p:nth-child(4){
+                text-align: left;
+            }
+            .parainfo{
+                margin-top: 5rem;
+                background-color: rgba(255,255,255);
+                color: black;
+                border-radius: 2rem;
+                padding: 2rem;
+            }
+            .cities
+            {
+                border-radius: 2rem;
+                width: 50%;
+                height: 12rem;
+                padding: 1rem;
+                font-size: 1rem;
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                overflow: hidden;
+                background-color: white;
+                color: black;
+                align-items: center;
+                transition:all 1s, height 0.5s;
+
+            }
+            .cities h1{
+                font-size: 2.5rem;
+                font-weight: 800;
+                margin: 0;
+            }
+            .cities p{
+                margin-top: 1rem;
+                font-size: 1.5rem;
+            }
+            .item{
+                display: flex;
+                flex-direction: row;
+                gap: 2rem;
+            }
+            .one,.three,.two,.four{
+                padding: 2rem;
+            }
+            .city1,.city2,.city3,.city4,.city5,.city6,.city7,.city8{
+                background-color: white;
+                color: black;
+                width: fit-content;
+                text-align: center;
+                font-size: 1.3rem;
+                border-radius: 2rem;
+                padding: 1rem;
+            }
+            .cities,.billboard{
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <div class="logo"><span>Ad</span>Space</div>
+            <nav>
+                <a href="/">Home</a>
+                <a id="serviceButton">Services</a>
+                <a href="AboutUs.html">About Us</a>
+            </nav>
+        </header>
+        <section class="hero">
+            <h1>M<span>ax</span>im<span>iz</span>e Y<span>ou</span>r R<span>ea</span>ch</h1>
+            <p>Find the perfect advertising space for your business.</p>
+            <a id="exploreButton" class="cta-button">Explore Services</a>
+        </section>
+        <div class="parentContainer">
+            <div class=" card billboardLocations">
+                <h1>50k+</h1>
+                <p>Billboard Locations</p>
+            </div>
+            <div class=" card Spots">
+                <h1>1M+</h1>
+                <p>Radio Spots</p>
+            </div>
+
+            <div class=" card impressions">
+                <h1>10M+</h1>
+                <p>Digital Impressions</p>
+            </div>
+        </div>
+        <div class="headerContainer" id="marker">Services</div>
+        <div class="serviceContainer">
+            <div class="billboard" id="id1">
+                <h1>Billboard Advertising</h1>
+                <p id="billheader">Prime Locations in High-traffic areas to maximize your brand visibility</p>
+                <p class="parainfo">Billboard advertising is a high-visibility form of outdoor advertising that uses large boards in strategic locations to capture attention. It includes static, digital, and mobile billboards, each offering unique benefits. Effective for brand awareness and local targeting, billboards reach a wide audience 24/7, making them ideal for quick, impactful messages. Although they can be costly and limited in information, a simple, bold design helps make them memorable and effective for both local and global brands.</p>
+            </div>
+            <div class="cities" id="cityContainer">
+                <h1 id="cityHeader">Cities</h1>
+                <p id="cityPara">Availaible Cities:</p>
+                <div class="item one">
+                    <div class="city1">
+                        Mumbai: <br>
+                        Billboards: Starting at ₹50,000/month
+                    </div>
+                    <div class="city2">
+                        Delhi: <br>
+                        Billboards: Starting at ₹45,000/month
+                    </div>
+                </div>
+                <div class="item two">
+                    <div class="city3">
+                        Bengaluru: <br>
+                        Billboards: Starting at ₹48,000/month
+
+                    </div>
+                    <div class="city4">
+                        Hyderabad: <br>
+                        Billboards: Starting at ₹42,000/month
+
+                    </div>
+                </div>
+                <div class="item three">
+                    <div class="city5">Chennai: <br>
+                        Billboards: Starting at ₹44,000/month
+                        </div>
+                    <div class="city6">Kolkata:<br>
+                        Billboards: Starting at ₹40,000/month
+                    </div>
+                </div>
+                <div class="item four">
+                    <div class="city7">
+                        Pune:<br>
+                        Billboards: Starting at ₹38,000/month
+                    </div>
+                    <div class="city8">
+                        Ahmedabad:<br>
+                        Billboards: Starting at ₹36,000/month
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var element = document.getElementById('id1');
+            var ele2=document.getElementById('billheader');
+            element.addEventListener('click',function () {
+                if(element.style.height==='40rem')
+            {
+                element.style.height='12rem';
+                element.style.backgroundImage='none';
+                element.style.color='black';
+                ele2.style.backgroundColor='transparent';
+                ele2.style.borderRadius='0';
+                ele2.style.padding='2rem';
+            }
+                else
+                {
+                element.style.height='40rem';
+                element.style.backgroundImage='url(images/billboard.jpg)';
+                element.style.color='white';
+                ele2.style.backgroundColor='rgba(255,255,255)';
+                ele2.style.borderRadius='2rem';
+                ele2.style.padding='2rem';
+                ele2.style.color='black';
+                }
+            });
+            var city=document.getElementById('cityContainer');
+            var cityh=document.getElementById('cityHeader');
+            var cityp=document.getElementById('cityPara');
+            city.addEventListener('click',function () {
+                if(city.style.height==='60rem')
+            {
+                city.style.height='12rem';
+                city.style.backgroundImage='none';
+                cityh.style.color='black';
+                cityp.style.color='black';
+            }
+            else
+            {
+            city.style.height='60rem';
+            city.style.backgroundImage='url(images/citiesbg.jpeg)';
+            cityh.style.color='white';
+            cityp.style.color='white';
+            }
+        });
+            var but = document.getElementById('serviceButton');
+            but.addEventListener('click', function() {
+                document.getElementById('marker').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+            var but2=document.getElementById('exploreButton');
+            but2.addEventListener('click', function() {
+                document.getElementById('marker').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        </script>
+    </body>
+    </html>
